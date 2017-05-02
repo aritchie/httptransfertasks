@@ -15,7 +15,20 @@ namespace Plugin.HttpTransferTasks
         {
             switch (status)
             {
+                case BackgroundTransferStatus.PausedSystemPolicy:
+                    this.Status = TaskStatus.Paused;
+                    break;
+
+                case BackgroundTransferStatus.PausedCostedNetwork:
+                    this.Status = TaskStatus.PausedByNoNetwork;
+                    break;
+
                 case BackgroundTransferStatus.PausedByApplication:
+                    this.Status = TaskStatus.Paused;
+                    break;
+
+                case BackgroundTransferStatus.Error:
+                    // TODO: get exception
                     break;
 
                 case BackgroundTransferStatus.Canceled:
@@ -23,6 +36,11 @@ namespace Plugin.HttpTransferTasks
                     break;
 
                 case BackgroundTransferStatus.Completed:
+                    this.Status = TaskStatus.Completed;
+                    break;
+
+                case BackgroundTransferStatus.Running:
+                    this.Status = TaskStatus.Running;
                     break;
             }
             this.BytesTransferred = (long)bytesXfer;

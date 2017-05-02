@@ -27,6 +27,7 @@ namespace Plugin.HttpTransferTasks
                 foreach (NSUrlSessionUploadTask upload in uploads)
                 {
                     // TODO: need localFilePath for what WAS uploading
+                    // TODO: need to set resumed status
                     this.Add(new HttpTask(this.ToTaskConfiguration(upload), upload));
                     upload.Resume();
                 }

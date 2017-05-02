@@ -5,6 +5,9 @@ namespace Plugin.HttpTransferTasks
 {
     public enum TaskStatus
     {
+        Paused,
+        PausedByNoNetwork,
+        PausedByCostedNetwork,
         Running,
         Resumed,
         Retrying,
