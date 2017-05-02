@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>f4a15dd9-921c-475d-aa23-a9687d48fd92</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Plugin.HttpTransferTasks</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)HttpTransferTasks.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HttpTask.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\SqlTaskConfiguration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\SqlTaskConfigurationHeader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProgressStreamContent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SqliteConnection.cs" />
+  </ItemGroup>
+</Project>
