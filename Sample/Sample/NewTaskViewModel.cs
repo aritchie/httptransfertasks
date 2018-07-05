@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
-using Acr;
 using Plugin.HttpTransferTasks;
-using Command = Acr.Command;
+using Xamarin.Forms;
 
 
 namespace Sample

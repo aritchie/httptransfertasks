@@ -2,9 +2,7 @@
 using System.ComponentModel;
 using System.Reactive.Linq;
 using System.Windows.Input;
-using Acr;
 using Acr.UserDialogs;
-using Acr.XamForms;
 using Humanizer;
 using Plugin.HttpTransferTasks;
 using Xamarin.Forms;
@@ -12,7 +10,7 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public class HttpTaskViewModel : ViewModel, IViewModelLifecycle
+    public class HttpTaskViewModel : ViewModel
     {
         readonly IHttpTask task;
         IDisposable taskSub;
@@ -21,8 +19,8 @@ namespace Sample
         public HttpTaskViewModel(IHttpTask task)
         {
             this.task = task;
-            this.Cancel = new Acr.Command(task.Cancel);
-            this.MoreInfo = new Acr.Command(() =>
+            this.Cancel = new Command(task.Cancel);
+            this.MoreInfo = new Command(() =>
             {
                 if (task.Status == TaskStatus.Error)
                     UserDialogs.Instance.Alert(task.Exception.ToString(), "Error");
@@ -38,9 +36,7 @@ namespace Sample
                 return () => this.task.PropertyChanged -= handler;
             })
             .Sample(TimeSpan.FromSeconds(1))
-            .Subscribe(x =>
-                Device.BeginInvokeOnMainThread(() => this.OnPropertyChanged(String.Empty))
-            );
+            .Subscribe(x => this.OnPropertyChanged(String.Empty));
 
         public void OnDeactivate() => this.taskSub?.Dispose();
         public bool OnBack() => true;
@@ -56,8 +52,5 @@ namespace Sample
 
         public ICommand Cancel { get; }
         public ICommand MoreInfo { get; }
-
-        protected virtual void OnTaskPropertyChanged(object sender, PropertyChangedEventArgs args)
-            => Device.BeginInvokeOnMainThread(() => this.OnPropertyChanged(String.Empty));
     }
 }

@@ -12,7 +12,7 @@ namespace Sample
     {
         public MainViewModel()
         {
-            this.NewTask = new Acr.Command(async () =>
+            this.NewTask = new Command(async () =>
                 await App.Current.MainPage.Navigation.PushAsync(new NewTaskPage())
             );
             this.MoreInfo = new Acr.Command<HttpTaskViewModel>(x => x.MoreInfo.Execute(null));
