@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using Acr;
 using Plugin.HttpTransferTasks;
 using Xamarin.Forms;
 
@@ -15,8 +14,8 @@ namespace Sample
             this.NewTask = new Command(async () =>
                 await App.Current.MainPage.Navigation.PushAsync(new NewTaskPage())
             );
-            this.MoreInfo = new Acr.Command<HttpTaskViewModel>(x => x.MoreInfo.Execute(null));
-            this.CancelAll = new Acr.Command(CrossHttpTransfers.Current.CancelAll);
+            this.MoreInfo = new Command<HttpTaskViewModel>(x => x.MoreInfo.Execute(null));
+            this.CancelAll = new Command(CrossHttpTransfers.Current.CancelAll);
             this.Tasks = new ObservableCollection<HttpTaskViewModel>();
 
             CrossHttpTransfers.Current.CurrentTasksChanged += (sender, args) =>
