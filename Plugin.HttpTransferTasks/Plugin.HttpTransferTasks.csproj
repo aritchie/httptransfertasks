@@ -1,47 +1,87 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DA481A2A-2AD7-4FA7-BFB0-E54E4F0E453B}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Plugin.HttpTransferTasks</RootNamespace>
-    <AssemblyName>Plugin.HttpTransferTasks</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>false</DebugSymbols>
-    <DebugType>none</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;BAIT</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;BAIT</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\Plugin.HttpTransferTasks.Abstractions\Plugin.HttpTransferTasks.Abstractions.csproj">
-      <Project>{d3141f6b-355a-4f19-b9d7-bca7d2cafaca}</Project>
-      <Name>Plugin.HttpTransferTasks.Abstractions</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <Import Project="..\Plugin.HttpTransferTasks.Shared\Plugin.HttpTransferTasks.Shared.projitems" Label="Shared" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">netstandard2.0;MonoAndroid80;Xamarin.iOS10;uap10.0</TargetFrameworks>
+        <TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netstandard2.0;MonoAndroid80;Xamarin.iOS10</TargetFrameworks>
+        <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' ">true</GeneratePackageOnBuild>
+        <Authors>aritchie</Authors>
+        <Company />
+        <AssemblyName>Plugin.HttpTransferTasks</AssemblyName>
+        <RootNamespace>Plugin.HttpTransferTasks</RootNamespace>
+        <Description>
+Cross Platform HTTP (background) transfer tasks for Xamarin and Windows
+
+Supported Platforms
+* Android 4.3+
+* iOS 7+
+* .NET 4.5+
+* Windows UWP
+
+Features
+* Background Uploads and Downloads on each platform
+* Supports transfer filtering based on metered connections (iOS and UWP only at the moment)
+* Event Based Metrics
+* Percentage Complete
+* Total Bytes Expected
+* Total Bytes Transferred
+* Transfer Speed (Bytes Per Second)
+* Estimated Completion Time
+        </Description>
+        <Product>$(AssemblyName) ($(TargetFramework))</Product>
+        <PackageVersion>2.0.0</PackageVersion>
+        <RepositoryUrl>https://github.com/aritchie/httptransfertasks</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/aritchie/httptransfertasks</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/aritchie/httptransfertasks/blob/master/LICENSE.md</PackageLicenseUrl>
+        <PackageIconUrl>https://github.com/aritchie/httptransfertasks/raw/master/icon.png</PackageIconUrl>
+        <PackageReleaseNotes>https://github.com/aritchie/httptransfertasks/blob/master/docs/changelog.md</PackageReleaseNotes>
+        <PackageTags>ios android uwp windows xamarin background http transfer</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <IncludeSymbols>True</IncludeSymbols>
+        <IncludeSource>True</IncludeSource>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" $(TargetFramework.StartsWith('uap')) ">
+        <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
+        <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="Platforms\**\*.cs" />
+        <None Remove="Platforms\iOS\CrossHttpTransfers.cs" />
+        <None Remove="Platforms\iOS\HttpTask.cs" />
+        <None Remove="Platforms\iOS\HttpTransferTasks.cs" />
+        <None Remove="Platforms\iOS\IIosHttpTask.cs" />
+        <None Remove="Platforms\iOS\PluginSessionDelegate.cs" />
+        <None Remove="Platforms\Standard\CrossHttpTransfers.cs" />
+        <None Remove="Platforms\Standard\HttpTask.cs" />
+        <None Remove="Platforms\Standard\HttpTransferTasks.cs" />
+        <None Remove="Platforms\Standard\Models\SqlTaskConfiguration.cs" />
+        <None Remove="Platforms\Standard\Models\SqlTaskConfigurationHeader.cs" />
+        <None Remove="Platforms\Standard\ProgressStreamContent.cs" />
+        <None Remove="Platforms\Standard\SqliteConnection.cs" />
+        <None Remove="Platforms\Uwp\AbstractUwpHttpTask.cs" />
+        <None Remove="Platforms\Uwp\CrossHttpTransfers.cs" />
+        <None Remove="Platforms\Uwp\DownloadHttpTask.cs" />
+        <None Remove="Platforms\Uwp\HttpTransferTasks.cs" />
+        <None Remove="Platforms\Uwp\UploadHttpTask.cs" />
+        <PackageReference Include="MSBuild.Sdk.Extras" Version="1.5.4" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-62925-02" PrivateAssets="All" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
+        <Compile Include="Platforms\Android\**\*.cs" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
+        <Compile Include="Platforms\iOS\**\*.cs" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" $(TargetFramework.StartsWith('uap')) ">
+        <Compile Include="Platforms\Uwp\**\*.cs" />
+        <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.8" PrivateAssets="All" />
+    </ItemGroup>
+
+    <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>
