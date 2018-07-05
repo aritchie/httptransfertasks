@@ -2,7 +2,7 @@
 using SQLite;
 
 
-namespace Plugin.HttpTransferTasks.Models
+namespace Plugin.HttpTransferTasks
 {
     public class SqlTaskConfigurationHeader
     {

@@ -4,12 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
-using Plugin.HttpTransferTasks.Models;
-#if __ANDROID__
 using Android.App;
 using Android.Content;
 using Android.OS;
-#endif
 
 
 namespace Plugin.HttpTransferTasks
@@ -17,14 +14,11 @@ namespace Plugin.HttpTransferTasks
     public class HttpTransferTasks : AbstractHttpTransferTasks
     {
         readonly SqliteConnection conn;
-#if __ANDROID__
         PowerManager.WakeLock wakeLock;
-#endif
 
         public HttpTransferTasks()
         {
             this.conn = new SqliteConnection(); // this will block for a moment
-#if __ANDROID__
             this.CurrentTasksChanged += (sender, args) =>
             {
                 var powerManager = (PowerManager)Application.Context.GetSystemService(Context.PowerService);
@@ -40,7 +34,6 @@ namespace Plugin.HttpTransferTasks
                     this.wakeLock.Acquire();
                 }
             };
-#endif
             Task.Run(() =>
             {
                 var cfgs = this.conn.TaskConfigurations.ToList();

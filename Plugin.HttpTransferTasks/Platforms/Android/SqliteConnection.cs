@@ -7,7 +7,7 @@ namespace Plugin.HttpTransferTasks
 {
     public class SqliteConnection : SQLiteConnection
     {
-        public SqliteConnection() : base(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "pluginhttptransfer"), true)
+        public SqliteConnection() : base(Path.Combine(FileSystem.Current.AppDataDirectory.FullName, "pluginhttp.db"), true)
         {
             this.CreateTable<SqlTaskConfiguration>();
             this.CreateTable<SqlTaskConfigurationHeader>();

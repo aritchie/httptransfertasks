@@ -5,8 +5,6 @@
         <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' ">true</GeneratePackageOnBuild>
         <Authors>aritchie</Authors>
         <Company />
-        <AssemblyName>Plugin.HttpTransferTasks</AssemblyName>
-        <RootNamespace>Plugin.HttpTransferTasks</RootNamespace>
         <Description>
 Cross Platform HTTP (background) transfer tasks for Xamarin and Windows
 
@@ -26,7 +24,7 @@ Features
 * Transfer Speed (Bytes Per Second)
 * Estimated Completion Time
         </Description>
-        <Product>$(AssemblyName) ($(TargetFramework))</Product>
+        <Product>Plugin.HttpTransferTasks ($(TargetFramework))</Product>
         <PackageVersion>2.0.0</PackageVersion>
         <RepositoryUrl>https://github.com/aritchie/httptransfertasks</RepositoryUrl>
         <PackageProjectUrl>https://github.com/aritchie/httptransfertasks</PackageProjectUrl>
@@ -48,30 +46,17 @@ Features
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Remove="Platforms\**\*.cs" />
         <None Include="Platforms\**\*.cs" />
-        <None Remove="Platforms\iOS\CrossHttpTransfers.cs" />
-        <None Remove="Platforms\iOS\HttpTask.cs" />
-        <None Remove="Platforms\iOS\HttpTransferTasks.cs" />
-        <None Remove="Platforms\iOS\IIosHttpTask.cs" />
-        <None Remove="Platforms\iOS\PluginSessionDelegate.cs" />
-        <None Remove="Platforms\Standard\CrossHttpTransfers.cs" />
-        <None Remove="Platforms\Standard\HttpTask.cs" />
-        <None Remove="Platforms\Standard\HttpTransferTasks.cs" />
-        <None Remove="Platforms\Standard\Models\SqlTaskConfiguration.cs" />
-        <None Remove="Platforms\Standard\Models\SqlTaskConfigurationHeader.cs" />
-        <None Remove="Platforms\Standard\ProgressStreamContent.cs" />
-        <None Remove="Platforms\Standard\SqliteConnection.cs" />
-        <None Remove="Platforms\Uwp\AbstractUwpHttpTask.cs" />
-        <None Remove="Platforms\Uwp\CrossHttpTransfers.cs" />
-        <None Remove="Platforms\Uwp\DownloadHttpTask.cs" />
-        <None Remove="Platforms\Uwp\HttpTransferTasks.cs" />
-        <None Remove="Platforms\Uwp\UploadHttpTask.cs" />
+        <PackageReference Include="Acr.Core" Version="2.0.2" />
         <PackageReference Include="MSBuild.Sdk.Extras" Version="1.5.4" PrivateAssets="all" />
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-62925-02" PrivateAssets="All" />
     </ItemGroup>
 
     <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
         <Compile Include="Platforms\Android\**\*.cs" />
+        <PackageReference Include="sqlite-net-pcl" Version="1.4.118" />
+        <PackageReference Include="System.Net.Http" Version="4.3.3" />
     </ItemGroup>
 
     <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
