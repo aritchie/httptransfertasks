@@ -25,21 +25,17 @@ namespace Sample
                 if (task.Status == TaskStatus.Error)
                     UserDialogs.Instance.Alert(task.Exception.ToString(), "Error");
             });
+
+            this.taskSub = Observable
+                .Create<IHttpTask>(ob =>
+                {
+                    var handler = new PropertyChangedEventHandler((sender, args) => ob.OnNext(this.task));
+                    this.task.PropertyChanged += handler;
+                    return () => this.task.PropertyChanged -= handler;
+                })
+                .Sample(TimeSpan.FromSeconds(1))
+                .Subscribe(x => Device.BeginInvokeOnMainThread(() => this.OnPropertyChanged(String.Empty)));
         }
-
-
-        public void OnActivate() => this.taskSub = Observable
-            .Create<IHttpTask>(ob =>
-            {
-                var handler = new PropertyChangedEventHandler((sender, args) => ob.OnNext(this.task));
-                this.task.PropertyChanged += handler;
-                return () => this.task.PropertyChanged -= handler;
-            })
-            .Sample(TimeSpan.FromSeconds(1))
-            .Subscribe(x => this.OnPropertyChanged(String.Empty));
-
-        public void OnDeactivate() => this.taskSub?.Dispose();
-        public bool OnBack() => true;
 
 
         public string Identifier => this.task.Identifier;

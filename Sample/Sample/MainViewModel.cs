@@ -21,7 +21,7 @@ namespace Sample
             CrossHttpTransfers.Current.CurrentTasksChanged += (sender, args) =>
             {
                 if (args.Change == TaskListChange.Add)
-                    Device.BeginInvokeOnMainThread(() => this.Tasks.Insert(0, new HttpTaskViewModel(args.Task)));
+                    Device.BeginInvokeOnMainThread(() => this.Tasks.Add(new HttpTaskViewModel(args.Task)));
             };
         }
 

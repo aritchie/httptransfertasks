@@ -10,8 +10,7 @@ namespace Sample
     {
         public NewTaskViewModel()
         {
-            this.url = "http://download-com.php5.hostingweb.co.uk/download/1GB.zip";
-            //this.url = "http://www.csm-testcenter.org/test";
+            this.url = "http://ipv4.download.thinkbroadband.com/1GB.zip";
 
             this.Save = new Command(async () =>
             {

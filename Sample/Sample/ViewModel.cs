@@ -12,7 +12,7 @@ namespace Sample
         }
 
 
-        public void OnDeactivated()
+        public virtual void OnDeactivated()
         {
         }
 
