@@ -7,6 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin.HttpTransferTasks", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BAF0DBEB-F4F1-4C8D-94E4-54D53CF0C682}"
 	ProjectSection(SolutionItems) = preProject
+		changelog.md = changelog.md
 		ISSUE_TEMPLATE = ISSUE_TEMPLATE
 		LICENSE.md = LICENSE.md
 		nuget.exe = nuget.exe
@@ -20,9 +21,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.iOS", "Sample\Sample
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.UWP", "Sample\Sample.UWP\Sample.UWP.csproj", "{60A452C7-1337-440F-8ED9-43A64D735B66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample\Sample.csproj", "{9E989EE7-37B6-4DC1-86AC-F1BA9B6AA460}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample", "Sample\Sample\Sample.csproj", "{9E989EE7-37B6-4DC1-86AC-F1BA9B6AA460}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Api", "Sample.Api\Sample.Api.csproj", "{CA12745D-B44F-411D-8837-7D34B978A4D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Api", "Sample.Api\Sample.Api.csproj", "{CA12745D-B44F-411D-8837-7D34B978A4D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

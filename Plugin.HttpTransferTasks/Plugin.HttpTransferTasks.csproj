@@ -11,7 +11,6 @@ Cross Platform HTTP (background) transfer tasks for Xamarin and Windows
 Supported Platforms
 * Android 4.3+
 * iOS 7+
-* .NET 4.5+
 * Windows UWP
 
 Features
@@ -30,7 +29,7 @@ Features
         <PackageProjectUrl>https://github.com/aritchie/httptransfertasks</PackageProjectUrl>
         <PackageLicenseUrl>https://github.com/aritchie/httptransfertasks/blob/master/LICENSE.md</PackageLicenseUrl>
         <PackageIconUrl>https://github.com/aritchie/httptransfertasks/raw/master/icon.png</PackageIconUrl>
-        <PackageReleaseNotes>https://github.com/aritchie/httptransfertasks/blob/master/docs/changelog.md</PackageReleaseNotes>
+        <PackageReleaseNotes>https://github.com/aritchie/httptransfertasks/blob/master/changelog.md</PackageReleaseNotes>
         <PackageTags>ios android uwp windows xamarin background http transfer</PackageTags>
         <RepositoryType>git</RepositoryType>
         <IncludeSymbols>True</IncludeSymbols>

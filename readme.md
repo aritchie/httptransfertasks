@@ -3,13 +3,14 @@ Cross platform HTTP download/upload manager
 
 [![NuGet](https://img.shields.io/nuget/v/Plugin.HttpTransferTasks.svg?maxAge=2592000)](https://www.nuget.org/packages/Plugin.HttpTransferTasks/)
 
+[Change Log](changelog.md)
 
 ## SUPPORTED PLATFORMS
 
+* .NET Standard 2.0
 * Android 4.3+
 * iOS 7+
-* .NET 4.5+
-* Windows UWP
+* Windows UWP 16299+
 
 
 ## FEATURES
