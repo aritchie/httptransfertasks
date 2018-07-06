@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sample="clr-namespace:Sample;assembly=Sample"
              xmlns:acr="clr-namespace:Acr.XamForms;assembly=Acr.XamForms"
+             xmlns:behaviors="clr-namespace:Acr.XamForms.Behaviors;assembly=Acr.XamForms"
              x:Class="Sample.MainPage"
              Title="HTTP Transfers">
 
@@ -28,10 +29,14 @@
             </Grid.RowDefinitions>
 
 
-            <acr:ListView ItemsSource="{Binding Tasks}"
-                          ItemClickCommand="{Binding MoreInfo}"
-                          RowHeight="130"
-                          Grid.Row="0">
+            <ListView ItemsSource="{Binding Tasks}"
+                      RowHeight="130"
+                      Grid.Row="0">
+
+                <ListView.Behaviors>
+                    <behaviors:ItemTappedCommandBehavior Command="{Binding MoreInfo}" />
+                </ListView.Behaviors>
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -100,7 +105,7 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </acr:ListView>
+            </ListView>
 
             <Button Text="Cancel All Tasks"
                     Command="{Binding CancelAll}"
