@@ -2,9 +2,8 @@
 
  - [] iOS
  - [] Android
- - [] UWP
- - [] NET 4.5
- - [] PCL
+ - [] UWP 16299+
+ - [] .NET Standard 2.0
 
 ## Version of OS(s) listed above with issue
 
