@@ -5,12 +5,15 @@ Cross platform HTTP download/upload manager
 
 [Change Log](changelog.md)
 
-## SUPPORTED PLATFORMS
+### [SUPPORT THIS PROJECT](https://github.com/aritchie/home)
 
-* .NET Standard 2.0
-* Android 4.3+
-* iOS 7+
-* Windows UWP 16299+
+## SUPPORTED PLATFORMS
+|Platform|Version|
+|--------|-------|
+iOS|7+
+Android|4.3+
+Windows UWP|16299+
+.NET Standard|2.0
 
 
 ## FEATURES
