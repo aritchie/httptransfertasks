@@ -2,6 +2,7 @@
 Cross platform HTTP download/upload manager
 
 [![NuGet](https://img.shields.io/nuget/v/Plugin.HttpTransferTasks.svg?maxAge=2592000)](https://www.nuget.org/packages/Plugin.HttpTransferTasks/)
+[![Build status](https://allanritchie.visualstudio.com/Plugins/_apis/build/status/HttpTransferTasks)](https://allanritchie.visualstudio.com/Plugins/_build/latest?definitionId=9)
 
 [Change Log](changelog.md)
 
