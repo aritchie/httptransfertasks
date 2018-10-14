@@ -1,12 +1,13 @@
 # ACR HTTP Transfers Plugin for Xamarin and Windows
-Cross platform HTTP download/upload manager
+_Cross platform HTTP download/upload manager_
 
-[![NuGet](https://img.shields.io/nuget/v/Plugin.HttpTransferTasks.svg?maxAge=2592000)](https://www.nuget.org/packages/Plugin.HttpTransferTasks/)
-[![Build status](https://allanritchie.visualstudio.com/Plugins/_apis/build/status/HttpTransferTasks)](https://allanritchie.visualstudio.com/Plugins/_build/latest?definitionId=9)
+### [SUPPORT THIS PROJECT](https://github.com/aritchie/home)
 
 [Change Log](changelog.md)
 
-### [SUPPORT THIS PROJECT](https://github.com/aritchie/home)
+[![NuGet](https://img.shields.io/nuget/v/Plugin.HttpTransferTasks.svg?maxAge=2592000)](https://www.nuget.org/packages/Plugin.HttpTransferTasks/)
+[![Build status](https://dev.azure.com/allanritchie/Plugins/_apis/build/status/HttpTransferTasks)](https://dev.azure.com/allanritchie/Plugins/_build/latest?definitionId=0)
+
 
 ## SUPPORTED PLATFORMS
 |Platform|Version|
