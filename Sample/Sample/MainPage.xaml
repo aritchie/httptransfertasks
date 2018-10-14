@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sample="clr-namespace:Sample;assembly=Sample"
              xmlns:acr="clr-namespace:Acr.XamForms;assembly=Acr.XamForms"
-             xmlns:behaviors="clr-namespace:Acr.XamForms.Behaviors;assembly=Acr.XamForms"
              x:Class="Sample.MainPage"
              Title="HTTP Transfers">
 
@@ -34,7 +33,7 @@
                       Grid.Row="0">
 
                 <ListView.Behaviors>
-                    <behaviors:ItemTappedCommandBehavior Command="{Binding MoreInfo}" />
+                    <acr:ItemTappedCommandBehavior Command="{Binding MoreInfo}" />
                 </ListView.Behaviors>
 
                 <ListView.ItemTemplate>
