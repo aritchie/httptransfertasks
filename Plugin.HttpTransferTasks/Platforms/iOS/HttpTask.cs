@@ -52,6 +52,6 @@ namespace Plugin.HttpTransferTasks
 
 
         public void SetStatus(TaskStatus status) => this.Status = status;
-        public void SetError(NSError error) => this.Exception = new Exception(error.LocalizedDescription);
+        public void SetError(NSError error) => this.Exception = new Exception(error?.LocalizedDescription ?? "There was an error in your request");
     }
 }
