@@ -95,6 +95,21 @@ namespace Plugin.HttpTransferTasks
                         this.Exception = ex;
                     }
                 }
+                catch (WebException ex)
+                {
+                    switch (ex.Status)
+                    {
+                        case WebExceptionStatus.ConnectFailure:
+                        case WebExceptionStatus.Timeout:
+                            this.Status = TaskStatus.Retrying;
+                            break;
+
+                        default:
+                            this.Status = TaskStatus.Error;
+                            this.Exception = ex;
+                            break;
+                    }
+                }
                 catch (TaskCanceledException)
                 {
                     this.Status = this.cancelSrc.IsCancellationRequested
