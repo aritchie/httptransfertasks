@@ -80,6 +80,10 @@ namespace Plugin.HttpTransferTasks
                         ? TaskStatus.Cancelled
                         : TaskStatus.Completed;
                 }
+                catch (TimeoutException)
+                {
+                    this.Status = TaskStatus.Retrying;
+                }
                 catch (IOException ex)
                 {
                     if (ex.InnerException is WebException)
