@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Foundation;
 
 
@@ -25,7 +26,10 @@ namespace Plugin.HttpTransferTasks
 
         public void SetDownloadComplete(string tempLocation)
         {
-            this.LocalFilePath = tempLocation;
+            if (String.IsNullOrWhiteSpace(this.LocalFilePath))
+                this.LocalFilePath = tempLocation;
+            else
+                File.Move(tempLocation, this.LocalFilePath);
             this.Status = TaskStatus.Completed;
         }
 

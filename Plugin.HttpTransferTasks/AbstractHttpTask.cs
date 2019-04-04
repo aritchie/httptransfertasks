@@ -8,6 +8,7 @@ namespace Plugin.HttpTransferTasks
         protected AbstractHttpTask(TaskConfiguration config, bool upload)
         {
             this.Configuration = config;
+            this.LocalFilePath = config.LocalFilePath;
             this.IsUpload = upload;
         }
 

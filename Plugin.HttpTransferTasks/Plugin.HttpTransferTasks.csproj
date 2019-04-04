@@ -1,7 +1,7 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras/1.6.61">
+﻿<Project Sdk="MSBuild.Sdk.Extras/1.6.68">
     <PropertyGroup>
-        <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">netstandard2.0;MonoAndroid80;Xamarin.iOS10;uap10.0</TargetFrameworks>
-        <TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netstandard2.0;MonoAndroid80;Xamarin.iOS10</TargetFrameworks>
+        <TargetFrameworks>netstandard2.0;MonoAndroid81;Xamarin.iOS10</TargetFrameworks>
+        <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">$(TargetFrameworks);uap10.0.16299</TargetFrameworks>
         <Authors>aritchie</Authors>
         <Company />
         <Description>
@@ -23,7 +23,7 @@ Features
 * Estimated Completion Time
         </Description>
         <Product>Plugin.HttpTransferTasks ($(TargetFramework))</Product>
-        <PackageVersion>2.0.1</PackageVersion>
+        <PackageVersion>2.0.2</PackageVersion>
         <RepositoryUrl>https://github.com/aritchie/httptransfertasks</RepositoryUrl>
         <PackageProjectUrl>https://github.com/aritchie/httptransfertasks</PackageProjectUrl>
         <PackageLicenseUrl>https://github.com/aritchie/httptransfertasks/blob/master/LICENSE.md</PackageLicenseUrl>

@@ -1,5 +1,8 @@
 # CHANGE LOG
 
+## 2.0.2
+* [ios] will now move the file download to completed file path if set
+
 ## 2.0.1
 * [ios] NRE when nserror is not provided properly to SetError
 * [droid] Timeout exceptions should cause a resume, not an error
