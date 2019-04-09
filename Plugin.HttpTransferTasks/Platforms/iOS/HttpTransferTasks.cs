@@ -100,13 +100,10 @@ namespace Plugin.HttpTransferTasks
             if (!String.IsNullOrWhiteSpace(config.PostData))
                 request.Body = NSData.FromString(config.PostData);
 
-            foreach (var header in config.Headers)
-            {
-                request.Headers.SetValueForKey(
-                    new NSString(header.Value),
-                    new NSString(header.Key)
-                );
-            }
+            var headerDictionary = NSDictionary.FromObjectsAndKeys(config.Headers.Values.ToArray(), config.Headers.Keys.ToArray());
+
+            request.Headers = headerDictionary;
+
             return request;
         }
     }
