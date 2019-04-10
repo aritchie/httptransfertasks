@@ -23,7 +23,7 @@ Features
 * Estimated Completion Time
         </Description>
         <Product>Plugin.HttpTransferTasks ($(TargetFramework))</Product>
-        <PackageVersion>2.0.2</PackageVersion>
+        <PackageVersion>2.0.3</PackageVersion>
         <RepositoryUrl>https://github.com/aritchie/httptransfertasks</RepositoryUrl>
         <PackageProjectUrl>https://github.com/aritchie/httptransfertasks</PackageProjectUrl>
         <PackageLicenseUrl>https://github.com/aritchie/httptransfertasks/blob/master/LICENSE.md</PackageLicenseUrl>

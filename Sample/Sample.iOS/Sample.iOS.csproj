@@ -159,4 +159,9 @@
       <Name>Sample</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms">
+      <Version>3.6.0.293080</Version>
+    </PackageReference>
+  </ItemGroup>
 </Project>
