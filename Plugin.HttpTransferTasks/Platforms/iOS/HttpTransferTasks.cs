@@ -16,6 +16,7 @@ namespace Plugin.HttpTransferTasks
         {
             this.sessionDelegate = new PluginSessionDelegate();
             this.sessionConfig = NSUrlSessionConfiguration.CreateBackgroundSessionConfiguration(NSBundle.MainBundle.BundleIdentifier + ".BackgroundTransferSession");
+            this.sessionConfig.HttpMaximumConnectionsPerHost = 1;
             this.session = NSUrlSession.FromConfiguration(
                 this.sessionConfig,
                 this.sessionDelegate,

@@ -2,6 +2,7 @@
 
 ## 2.0.3
 * [ios] headers not being set correctly - fix by Daniel Causer
+* [ios] authentication passthrough
 
 ## 2.0.2
 * [ios] will now move the file download to completed file path if set
