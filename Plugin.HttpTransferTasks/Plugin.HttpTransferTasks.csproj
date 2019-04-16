@@ -26,7 +26,7 @@ Features
         <PackageVersion>2.0.4</PackageVersion>
         <RepositoryUrl>https://github.com/aritchie/httptransfertasks</RepositoryUrl>
         <PackageProjectUrl>https://github.com/aritchie/httptransfertasks</PackageProjectUrl>
-        <PackageLicenseUrl>https://github.com/aritchie/httptransfertasks/blob/master/LICENSE.md</PackageLicenseUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageIconUrl>https://github.com/aritchie/httptransfertasks/raw/master/icon.png</PackageIconUrl>
         <PackageReleaseNotes>https://github.com/aritchie/httptransfertasks/blob/master/changelog.md</PackageReleaseNotes>
         <PackageTags>ios android uwp windows xamarin background http transfer</PackageTags>
