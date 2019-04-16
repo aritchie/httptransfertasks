@@ -29,7 +29,8 @@ namespace Plugin.HttpTransferTasks
             if (String.IsNullOrWhiteSpace(this.LocalFilePath))
                 this.LocalFilePath = tempLocation;
             else
-                File.Move(tempLocation, this.LocalFilePath);
+                File.Copy(tempLocation, this.LocalFilePath, true);
+
             this.Status = TaskStatus.Completed;
         }
 

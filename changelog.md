@@ -1,5 +1,8 @@
 # CHANGE LOG
 
+## 2.0.4
+* [ios] use File.Copy instead of File.Move when download completes
+
 ## 2.0.3
 * [ios] headers not being set correctly - fix by Daniel Causer
 * [ios] authentication passthrough
