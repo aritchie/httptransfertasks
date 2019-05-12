@@ -1,4 +1,6 @@
-# ACR HTTP Transfers Plugin for Xamarin and Windows
+# UPDATE - This library has now moved to the Shiny Framework at https://github.com/shinyorg/shiny
+
+## ACR HTTP Transfers Plugin for Xamarin and Windows
 _Cross platform HTTP download/upload manager_
 
 ### [SUPPORT THIS PROJECT](https://github.com/aritchie/home)
